@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="/js/vue.js"></script>
+    <title>Exercice2</title>
+</head>
+<body>
+    <div id="monapp" class="container text-center">
+        <p class="font-weight-bold">Nous sommes en {{ d.getFullYear() }}</p>
+    </div>
+
+    <div id="temps" class="container text-center">
+        <h1>Vous êtes là depuis :</h1>
+        <h1>
+          <span class="lebel label-primary">{{ heures }}</span> heures
+          <span class="lebel label-primary">{{ minutes }}</span> minutes
+          <span class="lebel label-primary">{{ secondes }}</span> secondes
+        </h1>
+    </div>
+    
+    <script>
+        let maVueModele = new Vue({
+            el: "#monapp",
+            data: {
+                d: new Date()
+            }
+        });
+
+        let vm = new Vue({
+            el: "#temps",
+            data: {
+                heure: 0,
+                minutes: 0,
+                secondes: 0
+            }
+        });
+
+        var totalSecondes = 0;
+
+        setInterval(function() {
+            var minutes = Math.floor(++totalSecondes / 60);
+            vm.secondes = totalSecondes - minutes * 60;
+            vm.heures = Math.floor(minutes / 60);
+            vm.minutes = minutes - vm.heures * 60;
+        }, 1000);
+    </script>
+</body>
+</html>
