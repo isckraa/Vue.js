@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="/js/vue.js"></script>
+    <title>Exercice6</title>
+    <style>
+        body { background-color: rgba(37,127,109, 0.9); }
+    </style>
+</head>
+<body>
+    <div id="vueapp" class="container text-center mt-3">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Id étudiant</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Note</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(etudiant, index) in tab">
+                    <th scope="row">{{ index }}</th>
+                    <td>{{ etudiant.nom }}</td>
+                    <td>{{ etudiant.note }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        let maVueModele = new Vue({
+            el: "#vueapp",
+            data: {
+                tab:[
+                    {nom: "Dupont", note: 12},
+                    {nom: "Aubin", note: 8},
+                    {nom: "François", note: 14},
+                    {nom: "Cochin", note: 9},
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
