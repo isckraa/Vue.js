@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="/js/vue.js"></script>
+    <title>Exercice11k</title>
+    <style>
+        body { background-color: rgba(37,127,109, 0.9); }
+    </style>
+</head>
+<body>
+    <div id="vueapp" class="container text-left mt-3">
+        <p class="font-weight-bold mt-3" v-bind:style="'font-family:' + choice">Paragraphe dont la police va changer.</p>
+        
+        <select class="custom-select custom-select-lg" v-model="choice">
+            <option selected>serif</option>
+            <option>sans-serif</option>
+            <option>monospace</option>
+            <option>cursive</option>
+            <option>fantasy</option>
+        </select>
+    </div>
+    
+    <script>
+        let maVueModele = new Vue({
+            el: "#vueapp",
+            data: {
+                choice: "serif"
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="/js/vue.js"></script>
+    <title>Exercice12</title>
+    <style>
+        body { background-color: rgba(37,127,109, 0.9); }
+    </style>
+</head>
+<body>
+    <div id="vueapp" class="container text-left mt-3">
+        <div class="input-group d-block">
+            <label for="number1">Nombre1 :</label>
+            <input type="number" name="number1" id="number1" class="form-control" min="0" max="99" v-model="nb1">
+            
+            <label for="number2">Nombre2 :</label>
+            <input type="number" name="number2" id="number2" class="form-control" min="0" max="99" v-model="nb2">
+        </div>
+
+        <p class="font-weight-bold mt-3">Le mélange des deux nombres est {{ melange }}.</p>
+    </div>
+    
+    <script>
+        let maVueModele = new Vue({
+            el: "#vueapp",
+            data: {
+                nb1: 35,
+                nb2: 67
+            },
+            computed: {
+                melange: {
+                    get: function() {
+                        var dnb1 = Math.trunc( this.nb1 / 10 );
+                        var dnb2 = Math.trunc( this.nb2 / 10 );
+                        var unb2 = this.nb2 - dnb2 * 10;
+
+                        if (dnb1 == 0) {
+                            return unb2;
+                        } else {
+                            return dnb1 + "" + unb2;
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

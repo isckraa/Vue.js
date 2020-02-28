@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="/js/vue.js"></script>
+    <title>Exercice11</title>
+    <style>
+        body { background-color: rgba(37,127,109, 0.9); }
+    </style>
+</head>
+<body>
+    <div id="vueapp" class="container text-left mt-3">
+        <ul class="list-group">
+            <li class="list-group-item">Boutons radio:<br>
+                <label for="btnred" class="ml-3">Rouge</label><input type="radio" name="rad" id="btnred" class="ml-3" value="red" v-model="couleur"><br>
+                <label for="btnblue" class="ml-3">Bleu</label><input type="radio" name="rad" id="btnblue" class="ml-3" value="blue" v-model="couleur">
+            </li>
+            <li class="list-group-item">Cases à cocher:<br>
+                <label for="cocaff" class="ml-3">Voulez-vous afficher le paragraphe?</label><input type="checkbox" id="cocaff" class="ml-3" v-model="display">
+            </li>
+        </ul>
+        <p class="font-weight-bold mt-3" v-bind:style="'color :' + couleur" v-show="display">Paragraphe à afficher</p>
+    </div>
+    
+    <script>
+        let maVueModele = new Vue({
+            el: "#vueapp",
+            data: {
+                couleur: "red",
+                display: true
+            }
+        });
+    </script>
+</body>
+</html>
